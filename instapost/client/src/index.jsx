@@ -8,7 +8,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      allPosts: []
+      allPosts: [],
+      fullPost: false
     }
   }
 
@@ -39,7 +40,7 @@ class App extends React.Component {
         </div>
 
         <div className="main">
-          <Feed allPosts={this.state.allPosts} />
+          <Feed postLength={this.state.fullPost} allPosts={this.state.allPosts} />
         </div>
       </div>
     );

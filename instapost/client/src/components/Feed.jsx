@@ -9,7 +9,7 @@ function Feed(props) {
       {/* section for post form */}
 
       {/* section for all posts */}
-      <Post allPosts={props.allPosts} />
+      <Post postLength={props.postLength} allPosts={props.allPosts} />
     </div>
   );
 }

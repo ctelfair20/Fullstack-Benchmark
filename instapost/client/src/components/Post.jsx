@@ -6,17 +6,18 @@ import ShowMore from './ShowMore.jsx';
 function Post(props) {
   console.log('post', props)
 
-  // function handleShowMoreClick() {
-
-  // }
+  function handleShowMoreClick() {
+    console.log("I've been clicked!")
+  }
 
   function createBodySections(post) {
     const characterCount = post.body.length;
     const bodyArr = post.body.split('\n');
     const len = bodyArr.length;
 
-    if (characterCount < 144) {
+    if (characterCount < 144 || props.postLength) {
       if (len % 2 === 0) {
+
         const firstHalf = bodyArr.slice(0, (len / 2) + 1).join(' ');
         const secondHalf = bodyArr.slice((len / 2) + 1).join(' ');
         return (
@@ -39,7 +40,7 @@ function Post(props) {
       return (
         <div>
           <p>{post.body.slice(0, 145)}...</p>
-          <ShowMore />
+          <ShowMore handleShowMore={handleShowMoreClick} />
         </div>
       )
     }
