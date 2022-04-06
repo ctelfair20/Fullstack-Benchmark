@@ -11,8 +11,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/../client/dist'));
 
 
-app.get('/api/posts', function(req, res) {
-  // TODO - your code here!
+app.get('/api/posts', function (req, res) {
+  console.log('response :', res);
+  Post.find({})
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.send(err);
+    })
 });
 
 app.listen(PORT, () => {

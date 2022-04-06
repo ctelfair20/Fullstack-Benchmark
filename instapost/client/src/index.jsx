@@ -7,7 +7,26 @@ import Feed from './components/Feed.jsx';
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {}
+    this.state = {
+      allPosts: []
+    }
+  }
+
+  componentDidMount() {
+    $.ajax({
+      method: 'GET',
+      url: '/api/posts',
+      contentType: 'application/json',
+      success: (data) => {
+        console.log(data);
+        this.setState({
+          allPosts: data
+        })
+      },
+      error: (err) => {
+        throw err;
+      }
+    })
   }
 
   render() {
