@@ -39,7 +39,7 @@ class App extends React.Component {
         </div>
 
         <div className="main">
-          <Feed />
+          <Feed allPosts={this.state.allPosts} />
         </div>
       </div>
     );
